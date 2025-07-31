@@ -18,7 +18,7 @@ public class ShowPasswordsView {
         ListView<String> siteList = new ListView<>();
         ObservableList<String> sites = FXCollections.observableArrayList();
 
-        // Veritabanından site isimlerini çek
+       
         try (Connection conn = Database.getConnection(Database.url)) {
             String query = "SELECT site FROM logs;";
             PreparedStatement ps = conn.prepareStatement(query);
@@ -36,7 +36,6 @@ public class ShowPasswordsView {
         Button showPasswordBtn = new Button("Show Password");
         Button backBtn = new Button("Back");
 
-        // Site seçilince bilgileri getir
         siteList.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 try (Connection conn = Database.getConnection(Database.url)) {
@@ -66,7 +65,7 @@ public class ShowPasswordsView {
             }
         });
 
-        // Geri dön butonu
+       
         backBtn.setOnAction(e -> {
             MenuView menuView = new MenuView();
             stage.setScene(menuView.getMainScene(stage));
