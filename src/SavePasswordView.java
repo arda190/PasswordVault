@@ -18,31 +18,31 @@ import javafx.scene.layout.HBox;
 public class SavePasswordView {
 
     public Scene getScene(Stage stage) {
-        // Etiketler
+    
         Label siteLabel = new Label("Site Name:");
         Label userLabel = new Label("Username:");
         Label passLabel = new Label("Password:");
 
-        // Giriş alanları
+        
         TextField siteField = new TextField();
         TextField userField = new TextField();
         PasswordField passField = new PasswordField();
 
-        // Kaydet butonu
+       
         Button saveButton = new Button("Save");
         saveButton.setPrefWidth(100);
 
-        // Back butonu
+       
         Button backButton = new Button("Back");
         backButton.setPrefWidth(100);
 
-        // Grid düzeni
+    
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(40));
         grid.setHgap(10);
         grid.setVgap(15);
 
-        // Grid'e eleman ekleme
+       
         grid.add(siteLabel, 0, 0);
         grid.add(siteField, 1, 0);
         grid.add(userLabel, 0, 1);
@@ -52,13 +52,13 @@ public class SavePasswordView {
 
         grid.add(saveButton, 1, 3);
 
-        // HBox ile backButton'u sola hizala
+       
         HBox backBox = new HBox(backButton);
         backBox.setAlignment(Pos.BOTTOM_LEFT);
-        backBox.setPadding(new Insets(200, 0, 0, 0)); // Üstten boşlukla aşağı çekiyoruz
+        backBox.setPadding(new Insets(200, 0, 0, 0)); 
         grid.add(backBox, 0, 4);
 
-        // Kaydet butonu işlevi
+        
         saveButton.setOnAction(e -> {
             String site = siteField.getText();
             String username = userField.getText();
@@ -79,7 +79,7 @@ public class SavePasswordView {
             }
         });
 
-        // Back butonu işlevi — ana menüye dön
+       
         backButton.setOnAction(e -> {
             MenuView menuView = new MenuView();
             stage.setScene(menuView.getMainScene(stage));
